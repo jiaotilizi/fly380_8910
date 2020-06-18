@@ -1481,9 +1481,10 @@ static void tcpip_rsp(void *param)
                 if (!cipQSEND_quickSend && cipSPRT_sendPrompt != 2)
                 {
                     if (!cipMux_multiIp)
-                        sprintf(uaRspStr, "SEND OK");
+                        //sprintf(uaRspStr, "SEND OK");
+                        sprintf(uaRspStr, "");
                     else
-                        sprintf(uaRspStr, "%d,SEND OK", nMuxIndex);
+                        sprintf(uaRspStr, "%d,", nMuxIndex);
                 }
                 atCmdRespUrcText(engine, uaRspStr);
             }
@@ -2607,9 +2608,9 @@ static void _tcpipSend(atCommand_t *cmd, uint32_t uMuxIndex, uint8_t *send_data,
             if (cipSPRT_sendPrompt != 2)
             {
                 if (!cipMux_multiIp)
-                    sprintf(aucBuffer, "SEND OK");
+                    sprintf(aucBuffer, "");
                 else
-                    sprintf(aucBuffer, "%ld,SEND OK", uMuxIndex);
+                    sprintf(aucBuffer, "%ld", uMuxIndex);
             }
         }
         AT_CMD_RETURN(atCmdRespOKText(cmd->engine, aucBuffer));
@@ -3129,7 +3130,7 @@ void AT_TCPIP_CmdFunc_CIPRXGET(atCommand_t *cmd)
 * Parameter:    atCommand_t *cmd
 * Return:       void
 * Remark:       n/a
-* Author:       
+* Author:
 * Data:         20170907
 ******************************************************************************/
 
@@ -3498,7 +3499,7 @@ void AT_TCPIP_CmdFunc_CDNSCFG(atCommand_t *cmd)
 * Parameter:    atCommand_t *cmd
 * Return:       void
 * Remark:       n/a
-* Author:       
+* Author:
 * Data:         20170907
 ******************************************************************************/
 
@@ -3542,11 +3543,11 @@ void AT_TCPIP_CmdFunc_CIPSPRT(atCommand_t *cmd)
 
 /*****************************************************************************
 * Name:         AT_TCPIP_CmdFunc_CIPHEAD
-* Description:  
+* Description:
 * Parameter:    atCommand_t *cmd
 * Return:       void
 * Remark:       n/a
-* Author:       
+* Author:
 * Data:         20170907
 ******************************************************************************/
 
@@ -4074,7 +4075,7 @@ void AT_TCPIP_CmdFunc_CIPSERVER(atCommand_t *cmd)
                 }
                 else
                 {
-#if 0 //Delete by SUN Wei for bug 976191                 
+#if 0 //Delete by SUN Wei for bug 976191
                     if (gCipserver.mode == CIPSERVER_CLOSE && mode == CIPSERVER_CLOSE)
                     {
                         char aucBuffer[40] = {0};
