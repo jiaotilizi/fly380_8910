@@ -77,13 +77,16 @@ endif()
 if(CONFIG_AT_SPBLETEST_SUPPORT)
     target_sources(${target} PRIVATE bt/at_cmd_spbletest.c)
 endif()
+if(CONFIG_AT_MY_ACCOUNT_SUPPORT)
+    target_sources(${target} PRIVATE account/at_cmd_account.c)
+endif()
 
 set_target_properties(${target} PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${out_lib_dir})
 target_include_directories(${target} PUBLIC include)
 target_link_libraries(${target} PRIVATE
     kernel driver ml hal calclib atr cfw fs fsmount
     aworker net lwip http mupnp mbedtls libcoap
-    nvm cis_sdk fupdate audio service tts
+    nvm cis_sdk fupdate audio service tts poc lvgl
 )
 
 target_include_directories(${target} PRIVATE ../modem/sx/include)

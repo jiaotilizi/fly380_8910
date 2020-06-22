@@ -97,4 +97,9 @@
  */
 #cmakedefine CONFIG_AT_SPBLETEST_SUPPORT
 
+/**
+ * whether some my account at command can be used
+ */
+#cmakedefine CONFIG_AT_MY_ACCOUNT_SUPPORT
+
 #endif

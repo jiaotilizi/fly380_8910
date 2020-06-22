@@ -565,4 +565,6 @@ $MYSYSMODE,     atCmdHandleMYSYSMODE, 0
 +NETMSG,        atCmdHandleNETMSG,     0      //Get netinfo
 +GTCCINFO,      atCmdHandleGTCCINFO,   0      //inqury GSM/LTE service cell and neighbor cell
 
++LOGACCOUNT,    atCmdHandleLOGACCOUNT, 0      //write/read current account
+
 %%
